@@ -1,7 +1,7 @@
 from flask import Blueprint
 from flask_restful import Api, Resource, fields
 from .base import BaseAPI, BaseListAPI
-from models import Project, ProjectType
+from src.models import Project, ProjectType
 
 api_projects_blueprint = Blueprint('api_projects', __name__)
 api = Api(api_projects_blueprint)

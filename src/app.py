@@ -1,6 +1,6 @@
 from flask import Flask
-from config import config
-from models import db
+from src.config import config
+from src.models import db
 
 # for some reason doing this import makes models accessible to create_app
 # TODO: see if app can be instantiated without this import
@@ -20,9 +20,9 @@ def create_app(config_name='dev'):
     with app.app_context():
         # initialize extensions
         db.init_app(app)
-        from resources.locations import api_locations_blueprint
-        from resources.projects import api_projects_blueprint
-        from resources.users import api_users_blueprint
+        from src.resources.locations import api_locations_blueprint
+        from src.resources.projects import api_projects_blueprint
+        from src.resources.users import api_users_blueprint
 
         # register blueprints
         app.register_blueprint(api_locations_blueprint)
